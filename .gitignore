@@ -107,4 +107,7 @@ venv.bak/
 .mypy_cache/
 
 #image data folder
-/images
+/all_rowing_images
+/train_images
+/val_images
+
