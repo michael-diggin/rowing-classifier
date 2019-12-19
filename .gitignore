@@ -106,8 +106,10 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-#image data folder
+# image data folder
 /all_rowing_images
 /train_images
 /val_images
 
+# the video is very large, don't add it
+/cul_eight.MOV
