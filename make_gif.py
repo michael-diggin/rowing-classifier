@@ -44,10 +44,6 @@ def super_imposed_image(img, heatmap, weight, threshold):
         Weight: float between 0 and 1 for how heavily to use the heatmap
         Threshold: float between 0 and 1 for a threhold value of the heatmap to use
                     eg discards heatmap pixels below threshold """ 
-    if not weight:
-        weight = 0.15
-    if not threshold:
-        threshold = 0.75
     map_img = heatmap*(heatmap > threshold)
     map_img = cv2.resize(heatmap, (img.shape[1], img.shape[0]))
     map_img = np.uint8(255*map_img)
