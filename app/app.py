@@ -5,6 +5,8 @@ import numpy as np
 from flask import Flask, render_template, request, redirect, flash, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 
+from app.common import _preprocess_img, _map_pred_to_class
+
 UPLOAD_FOLDER = 'C:\\Users\\md705\\OneDrive\\Documents\\FlaskDownloads\\'
 ALLOWED_EXTENSIONS = ['jpg', 'png', 'jpeg']
 
@@ -17,19 +19,6 @@ def load_model():
     global model
     model_path = 'rowing_1213.h5'
     model = tf.keras.models.load_model(model_path)
-
-def _preprocess_img(img_path):
-    img = tf.keras.preprocessing.image.load_img(img_path, target_size=(224, 224))
-    img_tensor = tf.keras.preprocessing.image.img_to_array(img)
-    img_tensor = np.expand_dims(img_tensor, axis=0)
-    img_tensor = img_tensor/255.
-    return img_tensor
-
-def _map_pred_to_class(array):
-    l = list(array[0])
-    classes = ['Doubles', 'Eights','Fours', 'Pairs', 'Quads', 'Singles']
-    index = l.index(max(l))
-    return classes[index], max(l)
 
 def prediction(image):
     img_tensor = _preprocess_img(image)
