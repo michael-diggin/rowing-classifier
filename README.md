@@ -1,15 +1,18 @@
 # rowing-classifier
 Deep Learning Model to classify rowing images. 
 
-The model will be built on top of a pre-existing image classification model trained on the ImageNet dataset. More to come on that. 
+ The model can classify 6 different types of boats: Eights, Fours, Quads, Doubles, Pairs and Singles. It's still a work in progress but it's ~90% accurate so far. 
 
-## Road Map
-This project aims to be able to classify an image containing a rowing boat into it's boat class (e.g. single, eight, etc).   
-Firstly the aim is to be able to classify the images into two categories, eights (large boats) and smaller boats, before moving up to more categories.  
-Long term I'm thinking of developing this into a simple web application (if only to learn how to deploy Keras models to the web). 
- 
+ ## Heatmap images
+ I've added some utility functions that generate a heatmap based off the activations of the last convolutional layer, using the Grad-CAM method. It's explained very well in [Deep Learning with Python](https://www.amazon.co.uk/Deep-Learning-Python-Francois-Chollet/dp/1617294438) by Francois Chollet.
 
-The images are being provided by Ben Rodford, you can view his website [here](https://www.benrodfordphotography.co.uk). He takes great quality photos of nearly every rowing event in the UK. 
+ Using this I've made a short gif based off a video of my crew rowing from last year, the heatmap helps to show where in the image the models deems relevant for it's prediction:
 
-## Dependencies
-I use Python 3.6 and Keras with TF backend.
+ ![alt-text](https://github.com/michael-diggin/rowing-classifier/blob/master/cul_eight.gif?raw=true) 
+
+ ## Images
+
+ The images are being provided by Ben Rodford, you can view his website [here](https://www.benrodfordphotography.co.uk). He takes great quality photos of nearly every rowing event in the UK. 
+
+ ## What's Next?
+ Following on from making the model more accurate (image augmentation, fine tuning etc), the goal is to have a deployable web application, I'll be using Flask to handle that. 
