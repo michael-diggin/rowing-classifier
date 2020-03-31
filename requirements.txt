@@ -1,8 +1,8 @@
-tensorflow
+tensorflow==2.0.0
 numpy
 opencv-python
 h5py
 imageio
 matplotlib
 Pillow
-streamlit==0.52.2
+streamlit
