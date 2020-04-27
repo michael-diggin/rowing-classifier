@@ -7,7 +7,7 @@ class RowingModel():
         self.model = self.load_model()
 
     def load_model(self):
-        model_path = 'C:\\Users\\md705\\OneDrive\\Documents\\Projects\\rowing-classifier\\saved_models\\rowing_1213.h5'
+        model_path = '.\saved_models\model_with_preprocess.h5'
         model = tf.keras.models.load_model(model_path)
         return model
 
